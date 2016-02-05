@@ -3,8 +3,8 @@
 React-Seed is the React library.
 
 + Library: React
-+ Language: Javascript
-+ Dependency and Package Management: RequireJS, Bower
++ Language: ES6
++ Dependency and Package Management: SystemJS, Bower
 + JS Task Runner: Grunt
 + Unit & E2E Test Frameworks: PhantomJS, Karma, Jasmine, Protractor
 
@@ -13,7 +13,6 @@ React-Seed is the React library.
 + Check to see if npm was installed: <code>npm -v</code>
 + Install sass: <code>npm install sass -g</code>
 + Install compass: <code>npm install compass -g</code>
-+ Install phantomjs: <code>npm install phantomjs -g</code>
 + Install bower: <code>npm install bower -g</code>
 + Install grunt-cli: <code>npm install grunt-cli -g</code>
 
@@ -23,10 +22,3 @@ React-Seed is the React library.
 
 ## Run
 + <code>grunt web</code>
-
-## Unit and E2E Tests
-+ <code>npm install webdriver-manager -g [Firefox, Chrome, IE only]</code>
-+ <code>webdriver-manager update --standalone [Firefox, Chrome, IE only]</code>
-+ <code>webdriver-manager start [Firefox, Chrome, IE only]</code>
-+ Run the tests: <code>grunt tests</code>
-
