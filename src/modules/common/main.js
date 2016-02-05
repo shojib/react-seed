@@ -1,5 +1,2 @@
-define([ 
-	"common/header/main",
-	"common/footer/main"
-	// "common/error/main"
-]);
+import Header from './header/main';
+import Footer from './footer/main';

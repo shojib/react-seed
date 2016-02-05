@@ -1,20 +1,21 @@
-define(["react", "reactDom"], function(React, ReactDom) {
+import React from 'react';
+import ReactDom from 'react-dom';
 
-  "use strict";
+export class Header extends React.Component {
+    constructor (props) {
+        super(props)
+    }
 
-  var Header = React.createClass({
-    render: function() {
+    render () {
       return (
   		  <h3 className="pull-left"> <a href="#/home">React-Seed</a></h3>
       ) 
     }
-  });
+}
 
-  ReactDom.render(
-    <Header />,
-    document.getElementById("header")
-  );
-
-});
+ReactDom.render(
+  <Header />,
+  document.getElementById("header")
+);
 
 

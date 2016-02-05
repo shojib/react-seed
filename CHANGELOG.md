@@ -1,7 +1,6 @@
-# 0.1 (01-28-2016)
+# React-Seed 0.1 (02-04-2016)
 
 ## Features
 
-- JavaScript
+- ES6
 - React
-- RequireJS

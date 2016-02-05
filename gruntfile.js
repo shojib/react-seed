@@ -20,10 +20,10 @@ module.exports = function(grunt) {
         src: '*',
         dest: '<%= pkg.folders.build %>/i18n'
       },
-      template: {
+      templates: {
         expand: true,
         cwd: '<%= pkg.folders.src %>/',
-        src: 'index.html',
+        src: ['index.html','modules/**/*.html'],
         dest: '<%= pkg.folders.build %>'
       },
       libs: {
@@ -34,38 +34,18 @@ module.exports = function(grunt) {
       }
     },
 
-    requirejs: {
-      prod: {
+     babel: {
         options: {
-          baseUrl: '<%= pkg.folders.build %>/modules',
-          name: '../libs/almond/almond',
-          include: 'main',
-          mainConfigFile: '<%= pkg.folders.build %>/modules/main.js',
-          out: '<%= pkg.folders.build %>/modules/main.js',
-          optimize: 'uglify2',
-          wrapShim: false,
-          findNestedDependencies: true,
-          generateSourceMaps: false,
-          preserveLicenseComments: false,
-          useSourceUrl: false,
-          uglify2: {
-            mangle: false
-          }
-        }
-      }
-    },
-
-    react: {
-      dynamic_mappings: {
-        files: [
-          {
-            expand: true,
-            cwd: '<%= pkg.folders.entity_src %>',
-            src: ['**/*.js'],
-            dest: '<%= pkg.folders.entity_build %>',
-            ext: '.js'
-          }
-        ]
+            sourceMap: true
+        },
+      compile_all: {
+        expand: true,
+        flatten: false,
+        sourceMap: true,
+        cwd: '<%= pkg.folders.src %>',
+        src: ['*.js','modules/**/*.js'],
+        dest: '<%= pkg.folders.build %>',
+        ext: '.js'
       }
     },
 
@@ -82,16 +62,16 @@ module.exports = function(grunt) {
 
 
     watch: {
-      react: {
-        files: ['<%= pkg.folders.src %>/modules/**/*.js'],
-        tasks: 'react',
+      babel: {
+        files: ['<%= pkg.folders.src %>/*.js','<%= pkg.folders.entity_src %>/**/*.js'],
+        tasks: 'babel',
         options: {
           livereload: true
         }
       }, 
       template: {
         files: ['<%= pkg.folders.src %>/*.html'],
-        tasks: 'copy:template',
+        tasks: 'copy:templates',
         options: {
           livereload: true
         }
@@ -157,11 +137,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-protractor-runner');
-  grunt.loadNpmTasks('grunt-selenium-webdriver');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-babel');
   grunt.loadNpmTasks('grunt-react');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
@@ -190,13 +167,12 @@ module.exports = function(grunt) {
     'clean', 
     'copy', 
     'compass',
-    'react'
+    'babel'
   ]);
   
   // Build task(s).
   grunt.registerTask('prod', [
-    'compile', 
-    'requirejs'
+    'compile'
   ]);
   
   // Build task(s).
