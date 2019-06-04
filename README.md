@@ -1,3 +1,5 @@
+# NOT FINISHED
+
 # [React-Seed v0.1](http://shojib.github.io/react-seed)
 
 React-Seed is the React library.
