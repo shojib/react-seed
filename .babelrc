@@ -1,1 +1,27 @@
-{ "presets": ["es2015","react"] }
+{
+  "presets": [
+    [
+      "env", {
+        "targets": {
+          "browsers": ["ie >= 11"],
+        },
+        "useBuiltIns": true
+      }
+    ],
+    "react",
+    "stage-2"
+  ],
+  "plugins": [
+    [
+      "syntax-dynamic-import",
+      "react-hot-loader/babel",
+      "transform-runtime", {
+        "helpers" : false,
+        "polyfill": false,
+        "regenerator": true,
+        "useESModules": true,
+        "moduleName": "babel-runtime"
+      }
+    ]
+  ]
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './home/main';
-import Header from './common/header';
-import Footer from './common/footer';
+import Home from './modules/home/main';
+import Header from './modules/common/header';
+import Footer from './modules/common/footer';
 
 export class ReactSeed extends React.Component {
     render() {
