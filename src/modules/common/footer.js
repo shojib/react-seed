@@ -1,11 +1,6 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 
-export class Footer extends React.Component {
-    constructor (props) {
-        super(props)
-    }
-
+class Footer extends React.Component {
     render () {
 		    var currentYear = new Date().getFullYear();       
       	var copyrightYears = currentYear > 2016 ? 2016 + '-' + currentYear : 2016;
@@ -18,8 +13,4 @@ export class Footer extends React.Component {
     }
 }
 
-ReactDom.render(
-  <Footer />,
-  document.getElementById("footer")
-);
-
+export default Footer;
