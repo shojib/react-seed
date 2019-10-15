@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Home extends React.Component {
+class TodoList extends React.Component {
     render() {
         return (
             <div className="default-container">
+                TodoList
                 <div className="dl">
-                    <dt><Link to="/todolist">Todo List</Link></dt>
-                    <dd>A simple todo list.</dd>
                     <dt><Link to="/">Home</Link></dt>
                     <dd>Home</dd>
                 </div>
@@ -16,4 +15,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default TodoList;
